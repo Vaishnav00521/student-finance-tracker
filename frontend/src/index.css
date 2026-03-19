@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  body {
+    background-color: #020617;
+    color: #fafafa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #dc2626;
+    color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background-color: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 1rem;
+}
+
+/* Glow effects */
+.glow-crimson {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
+}
+
+.glow-crimson-strong {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.25);
+}
+
+/* Aurora background */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.aurora-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation: aurora 20s ease infinite;
+}
+
+.aurora-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  bottom: -150px;
+  left: -100px;
+  animation: aurora 25s ease infinite reverse;
+}
+
+.aurora-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: aurora 30s ease infinite;
+}
+
+/* Zigzag pattern background */
+.zigzag-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(220, 38, 38, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(220, 38, 38, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(220, 38, 38, 0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(220, 38, 38, 0.03) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aurora {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+
+  25% {
+    opacity: 0.5;
+    transform: translateX(5%) translateY(-5%) scale(1.1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: translateX(-5%) translateY(5%) scale(0.95);
+  }
+
+  75% {
+    opacity: 0.4;
+    transform: translateX(3%) translateY(3%) scale(1.05);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
